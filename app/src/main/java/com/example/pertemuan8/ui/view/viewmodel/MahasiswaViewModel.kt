@@ -13,4 +13,13 @@ class MahasiswaViewModel : ViewModel() {
     // Response
     val mahasiswaUiState: StateFlow<Mahasiswa> = _mahasiswaUiState.asStateFlow()
 
-    
+    fun saveDataSiswa(mahasiswa: Mahasiswa) {
+        _mahasiswaUiState.update { currentState ->
+            currentState.copy(
+                nim = mahasiswa.nim,
+                nama = mahasiswa.nama,
+                email = mahasiswa.email
+            )
+        }
+    }
+}
